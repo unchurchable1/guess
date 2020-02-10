@@ -61,19 +61,29 @@ class GuessingGame:
         # set spinbox position
         self.__spinbox.grid(column=0, row=3)
 
-        # add a button
-        self.__button = tk.Button(
+        # add a submit button
+        self.__submit = tk.Button(
             self.__window,
             text="Submit",
             font=("Bold", 10),
             command=self.submit,
         )
-        # set button position
-        self.__button.grid(column=0, row=4)
+        # set submit button position
+        self.__submit.grid(column=0, row=4)
 
-    # add submit event
+        # add a quit button
+        self.__quit = tk.Button(
+            self.__window,
+            text="Quit",
+            font=("Bold", 10),
+            command=self.__window.destroy,
+        )
+        # set quit button position
+        self.__quit.grid(column=0, row=5)
+
+    # add submit click event
     def submit(self):
-        """Handle click event."""
+        """Handle submit click event."""
         # get input from textbox
         guess = self.__textbox.get()
         if len(guess) == 0:
