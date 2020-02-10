@@ -39,7 +39,7 @@ class GuessingGame(tk.Frame):
         # add a textbox
         self.textbox = tk.Entry(self, width=5)
         # bind the return key
-        self.textbox.bind("<Return>", (lambda event: self.submit()))
+        self.textbox.bind("<Return>", self.submit)
         # set textbox position
         self.textbox.grid(column=0, row=1)
         # focus the cursor in the textbox
@@ -79,7 +79,7 @@ class GuessingGame(tk.Frame):
         self.quit_button.grid(column=0, row=5)
 
     # add submit click event
-    def submit(self):
+    def submit(self, event=None):
         """Handle submit click event."""
         # get input from textbox
         guess = self.textbox.get()
